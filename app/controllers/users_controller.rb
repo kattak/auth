@@ -1,11 +1,11 @@
-# index
+# index, all users
 get '/users' do
   @users = User.all
 
   erb :'users/index'
 end
 
-# create
+# post regist
 post '/users' do
   if params[:password] != params[:confirm_password]
     # TODO show the user an error message
