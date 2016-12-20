@@ -5,13 +5,15 @@ end
 
 #POST LOGIN FORM
 post '/sessions' do
-  @user = User.find_by(username: params[:username])
-  if @user.password == params[:password]
-    login(@user)
-    redirect '/'
-  else
-    erb :'/sessions/new'
-  end
+  @user = User.find_by(email: params[:email])
+
+    if @user && @user.password == params[:password]
+      login(@user)
+      redirect '/'
+    else
+      erb :'/sessions/new'
+    end
+
 end
 
 #LOGOUT (redirected from LOGOUT button)

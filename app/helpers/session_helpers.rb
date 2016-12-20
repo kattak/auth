@@ -14,7 +14,7 @@ helpers do
         user
       else
         #some rudimentary error handling if
-        #user was not logged out before closing the app lasta
+        #user was not logged out before closing the app last
         nil
       end
     else

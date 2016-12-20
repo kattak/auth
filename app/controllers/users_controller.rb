@@ -5,14 +5,14 @@ get '/users' do
   erb :'users/index'
 end
 
-# post regist
+# post registration form
 post '/users' do
-  if params[:password] != params[:confirm_password]
-    # TODO show the user an error message
-    return erb :'users/new'
-  end
+  # if params[:password] != params[:confirm_password]
+  #   # TODO show the user an error message
+  #   return erb :'users/new'
+  # end
 
-  @user = User.new(username: params[:username])
+  @user = User.new(params[:user])
   @user.password = params[:password]
 
   if @user.save
@@ -20,7 +20,8 @@ post '/users' do
     redirect "users/#{@user.id}"
   else
     # TODO Show the user a descriptive error message
-    erb :'users/new'
+    #erb :"/users/_errors", layout: false
+     erb :'users/new'
   end
 end
 

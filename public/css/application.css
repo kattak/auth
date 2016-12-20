@@ -38,3 +38,7 @@ a {
 .control-span {
   font-size: 75%;
 }
+
+.errors li {
+  color: red;
+}
