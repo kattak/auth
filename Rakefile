@@ -84,23 +84,30 @@ namespace :generate do
 end
 
 namespace :db do
-  desc "Drop, create, and migrate the database"
-  task :reset => [:drop, :create, :migrate]
+  desc "💧   Drop, 🐜  create, 🚃   migrate, and 🌱  seed the database"
+  task :reset => [:drop, :create, :migrate, :seed]
 
   desc "Create the databases at #{DB_NAME}"
   task :create do
+    puts "🐜 " * 50
     puts "Creating development and test databases if they don't exist..."
+    puts "🐜 " * 50
     system("createdb #{APP_NAME}_development && createdb #{APP_NAME}_test")
   end
 
   desc "Drop the database at #{DB_NAME}"
   task :drop do
+    puts "💧   " * 50
     puts "Dropping development and test databases..."
+    puts "💧   " * 50
     system("dropdb #{APP_NAME}_development && dropdb #{APP_NAME}_test")
   end
 
   desc "Migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog)."
   task :migrate do
+    puts "🚃   " * 50
+    puts "Migrating the database..."
+    puts "🚃   " * 50
     ActiveRecord::Migrator.migrations_paths << File.dirname(__FILE__) + 'db/migrate'
     ActiveRecord::Migration.verbose = ENV["VERBOSE"] ? ENV["VERBOSE"] == "true" : true
     ActiveRecord::Migrator.migrate(ActiveRecord::Migrator.migrations_paths, ENV["VERSION"] ? ENV["VERSION"].to_i : nil) do |migration|
@@ -110,6 +117,9 @@ namespace :db do
 
   desc "Populate the database with dummy data by running db/seeds.rb"
   task :seed do
+    puts "🌱   " * 100
+    puts "Seeding the database from seeds.rb..."
+    puts "🌱   " * 100
     require APP_ROOT.join('db', 'seeds.rb')
   end
 

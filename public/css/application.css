@@ -15,6 +15,7 @@ input, textarea {
 
 header {
  padding: .5em 1em;
+ background-color: #cde8b7;
 }
 header form, span form {
  display: inline-block;
