@@ -25,6 +25,8 @@ require 'faker'
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
+## TD: Where is APP_ROOT?
+##Very top
 
 APP_NAME = APP_ROOT.basename.to_s
 
