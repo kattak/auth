@@ -5,8 +5,8 @@ User.delete_all
 
 #Create sample user objects
 users = 20.times.map do
-  User.create!( name: Faker::Name.name,
-               email: Faker::Internet.email,
+  User.create!( username: Faker::Name.name,
+              #  email: Faker::Internet.email,
                password: 'p123')
   end
 
