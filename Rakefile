@@ -48,9 +48,28 @@ namespace :generate do
     File.open(path, 'w+') do |f|
       f.write(<<-EOF.strip_heredoc)
         class #{name} < ActiveRecord::Migration
-          def change
-          end
-        end
+          ## Sample Change Migration
+          #   def change
+          #     create_table :#{name.underscore.split("_").last} do |t|
+          #       ##Some sample columns
+          #       #t.string :name
+          #       #t.integer :age
+          #       ##Sample foreign id
+          #       ##Make sure image migration & model is created :)
+          #       #t.integer :image_id
+          #   end
+          # end
+
+          # #Sample Change Migration
+          # ## Adds a column called owner_id to cats
+          # ## Gets owner_id from owner
+          # class #{name} < ActiveRecord::Migration
+          #   def change
+          #     #add_column :cats, :owner_id, :integer
+          #   end
+          # end
+        #end 
+
       EOF
     end
   end
