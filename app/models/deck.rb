@@ -1,4 +1,4 @@
-class Set < ActiveRecord::Base
+class Deck < ActiveRecord::Base
   has_many :cards
 
 

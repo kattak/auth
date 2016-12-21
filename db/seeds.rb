@@ -30,13 +30,26 @@ def parse_file(filename)
 end
 
 set_hash = parse_file(APP_ROOT.join('app', 'sample_cards.json'))
+# p set_hash
+
+d = Deck.create!(title: set_hash["title"])
+
+##PARSING TERMS INTO CARD AND IMAGE INSTANCES ###
 terms = set_hash["terms"]
 
-#
 terms.each do |card|
   p card["term"]
   p card["definition"]
   p card["image"]["url"]
+
+#WHat to name??
+  cardd = Card.new(term: card["term"], definition: card["definition"])
+  cardd.deck_id = d.id
+  cardd.save
+
+  image = Image.new(url: card["image"]["url"], width: card["image"]["width"], height: card["image"]["height"])
+  image.card_id = cardd.id
+  image.save
 end
 
 
