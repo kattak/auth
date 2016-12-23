@@ -13,7 +13,6 @@ post '/sessions' do
     else
       erb :'/sessions/new'
     end
-
 end
 
 #LOGOUT (redirected from LOGOUT button)

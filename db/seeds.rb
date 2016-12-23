@@ -42,6 +42,8 @@ terms.each do |card|
   p card["definition"]
   p card["image"]["url"]
 
+
+
 #WHat to name??
   cardd = Card.new(term: card["term"], definition: card["definition"])
   cardd.deck_id = d.id

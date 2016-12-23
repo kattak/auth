@@ -12,7 +12,7 @@ get '/decks/:id' do
 
   #gets params from url
 
-  @set = Deck.find(params[:id]) #define instance variable for view
+  @deck = Deck.find(params[:id]) #define instance variable for view
 
   erb :'decks/show' #show single set view
 

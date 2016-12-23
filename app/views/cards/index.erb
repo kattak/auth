@@ -1,0 +1,17 @@
+show all cards
+
+<h2>All the cards:</h2>
+<ul>
+  <% @cards.each do |card| %>
+    <li>
+      <b></b><%= card.term %></b>
+    </li>
+    <li>
+      <%= card.definition %>
+    </li>
+    <li>
+      <%= card.image.url %>
+    </li>
+    <br>
+  <% end %>
+</ul>

@@ -1,4 +1,5 @@
 <!-- errors come from model validations -->
+<% if @user %>
 <% if @user.errors.any? %>
   <section class="errors">
     <ul>
@@ -7,4 +8,5 @@
       <% end %>
     </ul>
   </section>
+<% end %>
 <% end %>

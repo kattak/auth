@@ -21,6 +21,7 @@
 </head>
 <body>
 <header>
+  <a href="/"> CATEGORIZE </a> |
   <% if current_user %>
     <a href="/users/<%= current_user.id %>"><%= current_user.username %></a>
     <form action="/logout" method="post">
@@ -29,7 +30,8 @@
     </form>
   <% else %>
     <a href="/sessions/new">sign in</a>
-  <% end %>
+  <% end %> |
+<a href="/users/new"> register </a>
 </header>
 <div id="content">
   <%= yield %>
